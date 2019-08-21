@@ -1,0 +1,10 @@
+node_modules
+/dist
+package-lock.json
+yarn.lock
+.DS_STORE
+*.log
+*.tgz
+.idea/
+coverage
+/src/mock/data.json
