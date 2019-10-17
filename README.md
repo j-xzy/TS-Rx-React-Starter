@@ -80,6 +80,15 @@ export const config = {
 
 [更多Mock详情查看](https://github.com/whj1995/ts-faker/tree/master/test)
 
+### 最佳实践
+
+常用的配置项、方法挂载在全局window下，可在任意地方使用。
+
+1. window.config
+2. window.useMappedState
+3. window.commit
+4. window.dispatch
+5. window.RxGet、window.RxPost、window.RxPut、window.RxDelete
 ## 例子
 
 https://github.com/whj1995/ts-react-demo
