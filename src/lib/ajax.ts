@@ -22,9 +22,9 @@ export async function Delete<T extends IAjaxUtil.IDeleteUrl>(urlPattern: T, para
 export async function adFetch<T>(urlPattern: string, method: IAjaxUtil.IHttpMethod, params: any): Promise<T> {
   if (window.config.mock) {
     const { default: mockData }: any = await import('@/mock/data.json');
-    if (mockData[urlPattern] && mockData[urlPattern][method] && mockData[urlPattern][method].response) {
+    if (mockData[urlPattern] && mockData[urlPattern][method] && mockData[urlPattern][method]) {
       return await new Promise((resolve) => {
-        resolve(mockData[urlPattern][method].response);
+        resolve(mockData[urlPattern][method]);
       });
     }
   }
@@ -67,8 +67,8 @@ export function RxAjax<T>(urlPattern: string, method: IAjaxUtil.IHttpMethod, par
   if (window.config.mock) {
     return from(import('@/mock/data.json')).pipe(
       switchMap(({ default: mockData }: any) => {
-        if (mockData[urlPattern] && mockData[urlPattern][method] && mockData[urlPattern][method].response) {
-          return of(mockData[urlPattern][method].response);
+        if (mockData[urlPattern] && mockData[urlPattern][method] && mockData[urlPattern][method]) {
+          return of(mockData[urlPattern][method]);
         }
         return empty();
       })

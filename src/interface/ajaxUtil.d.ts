@@ -1,4 +1,4 @@
-import { AjaxRequest } from "rxjs/ajax";
+import { AjaxRequest } from 'rxjs/ajax';
 
 declare global {
   namespace IAjaxUtil {
