@@ -1,5 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const path = require('path');
 const base = require('./webpack.base');
 const config = require('../config');
@@ -16,13 +16,13 @@ base.module.rules.push(
       'css-loader'
     ]
   }, {
-    test: /\.styl$/,
-    use: [
-      'style-loader',
-      'css-loader',
-      'stylus-loader'
-    ]
-  }
+  test: /\.styl$/,
+  use: [
+    'style-loader',
+    'css-loader',
+    'stylus-loader'
+  ]
+}
 );
 
 module.exports = merge(base, {

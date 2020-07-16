@@ -5,8 +5,8 @@ const path = require('path');
 const fs = require('fs');
 const config = require('../config');
 
-const modelPath = path.resolve(config.srcPath, 'interface/model');
-const apiPath = path.resolve(config.srcPath, 'interface/api');
+const modelPath = path.resolve(config.srcPath, 'typings/model');
+const apiPath = path.resolve(config.srcPath, 'typings/api');
 
 function watchMock() {
   genMock();

@@ -18,7 +18,7 @@ module.exports = {
     rules: [{
       test: /\.tsx?$/,
       include: [config.srcPath],
-      use: ['babel-loader', 'tslint-loader'],
+      use: ['babel-loader', 'eslint-loader'],
       exclude: [/node_modules/]
     }, {
       test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,

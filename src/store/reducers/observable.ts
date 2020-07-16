@@ -1,7 +1,7 @@
 import { switchMapTo, tap } from 'rxjs/operators';
 import { IRxCtx } from '../createStore';
 
-export function getHelloFromRemote(ctx: IRxCtx<string>, _: string) {
+export function getHelloFromRemote(ctx: IRxCtx<string>) {
   return ctx.curAction$.pipe(
     switchMapTo(
       window.RxGet('/hello/{name}', {
@@ -9,7 +9,7 @@ export function getHelloFromRemote(ctx: IRxCtx<string>, _: string) {
           name: 'foo'
         }
       }).pipe(
-        tap(({ text }) => {
+        tap(({text}) => {
           ctx.commit('updateHello', text);
         })
       )

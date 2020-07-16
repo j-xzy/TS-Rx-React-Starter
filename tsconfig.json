@@ -22,12 +22,13 @@
     "types": [
       "react",
       "react-dom",
-      "node"
+      "node",
+      "jest"
     ],
     "emitDecoratorMetadata": true,
     "jsx": "react",
     "typeRoots": [
-      "./src/interface",
+      "src/typings",
       "./node_modules/@types"
     ],
     "baseUrl": "./",
@@ -37,7 +38,7 @@
   },
   "include": [
     "./src",
-    "./test"
+    "__tests__"
   ],
   "exclude": [
     "node_modules"

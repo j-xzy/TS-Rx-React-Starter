@@ -1,4 +1,4 @@
-import { createUseMappedState } from 'type-redux-hook';
+import { createUseSelector } from 'type-redux-hook';
 import * as mutations from '../reducers/mutation';
 import * as observables from '../reducers/observable';
 import { initialState } from '../state';
@@ -15,10 +15,10 @@ export type IReducers = typeof reducers;
 export type ICtx = TypeRedux.IContext<IState, IReducers['mutations'], IReducers['actions']>;
 export type IRxCtx<T> = TypeRedux.IRxContext<IState, IReducers['mutations'], IReducers['actions'], T>;
 
-export const useMappedState = createUseMappedState(store);
+export const useSelector = createUseSelector(store);
 export const commit = store.commit;
 export const dispatch = store.dispatch;
 
-window.useMappedState = useMappedState;
+window.useSelector = useSelector;
 window.commit = commit;
 window.dispatch = dispatch;

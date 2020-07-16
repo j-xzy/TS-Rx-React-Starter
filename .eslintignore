@@ -1,0 +1,8 @@
+.DS_Store
+node_modules
+__tests__
+/lib
+dist
+*.json
+*.js
+/build

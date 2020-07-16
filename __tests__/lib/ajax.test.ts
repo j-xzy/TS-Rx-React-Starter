@@ -40,57 +40,57 @@ describe('lib.ajax', () => {
     })).toBe('/bar/foo/99');
 
     expect(normalizeUrl('/user?id', {
-      querys: {
+      queries: {
         id: '123'
       }
     })).toBe('/user?id=123');
 
     expect(normalizeUrl('', {
-      querys: {
+      queries: {
         id: '123'
       }
     })).toBe('?id=123');
 
     expect(normalizeUrl('/user', {
-      querys: {
+      queries: {
         id: '123'
       }
     })).toBe('/user?id=123');
 
     expect(normalizeUrl('/user?id', {
-      querys: {
+      queries: {
         id: null as any
       }
     })).toBe('/user');
 
     expect(normalizeUrl('/user?id', {
-      querys: {
+      queries: {
         id: undefined as any
       }
     })).toBe('/user');
 
     expect(normalizeUrl('/user?id', {
-      querys: {
+      queries: {
         id: ''
       }
     })).toBe('/user');
 
     expect(normalizeUrl('/user?id', {
-      querys: {
+      queries: {
         id: '',
         name: null as any
       }
     })).toBe('/user');
 
     expect(normalizeUrl('/user?id&name', {
-      querys: {
+      queries: {
         id: undefined as any,
         name: 'xxx'
       }
     })).toBe('/user?name=xxx');
 
     expect(normalizeUrl('/user', {
-      querys: {
+      queries: {
         id: '123',
         type: 'red',
         height: '170'
@@ -102,11 +102,51 @@ describe('lib.ajax', () => {
         name: 'tom',
         age: '99'
       },
-      querys: {
+      queries: {
         id: '123',
         type: 'red',
         age: '27'
       }
     })).toBe('/tom/user/99?id=123&type=red&age=27');
+
+    expect(normalizeUrl('/user?id', {
+      queries: {
+        name: 'abc'
+      }
+    })).toBe('/user?name=abc');
+
+    expect(normalizeUrl('/user?id=abc', {
+      queries: { }
+    })).toBe('/user?id=abc')    
+
+    expect(normalizeUrl('/user?id=abc', {})).toBe('/user?id=abc')    
+
+    expect(normalizeUrl('/user?id=abc&foo=123', {
+      queries: {
+        id: '123',
+        height: '170'
+      }
+    })).toBe('/user?foo=123&id=123&height=170')
+
+    expect(normalizeUrl('/user?id=abc&foo=', {
+      queries: {
+        id: '123',
+        height: '170'
+      }
+    })).toBe('/user?id=123&height=170')
+
+    expect(normalizeUrl('/user?id&foo=123', {
+      queries: {
+        height: '170'
+      }
+    })).toBe('/user?foo=123&height=170')
+
+    expect(normalizeUrl('/user?id&foo=123', {
+      queries: {
+        id: 'abc',
+        height: '170'
+      }
+    })).toBe('/user?foo=123&id=abc&height=170')
   });
+
 });

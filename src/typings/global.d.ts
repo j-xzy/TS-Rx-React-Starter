@@ -1,4 +1,4 @@
-import { commit, dispatch, useMappedState, IState as IStoreState } from '@/store/createStore';
+import { commit, dispatch, useSelector, IState as IStoreState } from '@/store/createStore';
 import { Post, Delete, Put, Get, RxDelete, RxGet, RxPost, RxPut } from '@/lib/ajax';
 import { config } from '@/config';
 
@@ -17,6 +17,6 @@ declare global {
     RxPut: typeof RxPut;
     commit: typeof commit;
     dispatch: typeof dispatch;
-    useMappedState: typeof useMappedState;
+    useSelector: typeof useSelector;
   }
 }
